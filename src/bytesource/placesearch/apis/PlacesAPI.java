@@ -59,7 +59,7 @@ public class PlacesAPI {
 			in.close();
 			System.out.println("JSON Object retrieved:");
 			System.out.println(result.toString());
-			return new JSONObject(result.toString().getBytes("UTF-8"));
+			return new JSONObject(result.toString());
 		} catch (MalformedURLException e) {
 			System.out.println("Error processing Place URL");
 		} catch (IOException e) {
@@ -96,7 +96,7 @@ public class PlacesAPI {
 			in.close();
 			System.out.println("JSON object retrieved: ");
 			System.out.println(result.toString());
-			return new JSONObject(result.toString().getBytes("UTF-8"));
+			return new JSONObject(result.toString());
 		} catch (MalformedURLException e) {
 			System.err.println("Invalid URL for Google Places Details");
 		} catch (IOException e) {
