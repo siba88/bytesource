@@ -1,5 +1,6 @@
 package bytesource.placesearch.apis;
 
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 
 import org.json.JSONException;
@@ -44,9 +45,11 @@ public class YelpAPI {
 			System.out.println("Sending yelp request to: "+request.toString());
 			Response response = request.send();
 			System.out.println("Yelp response: "+response.getBody());
-			return new JSONObject(response.getBody());
+			return new JSONObject(response.getBody().toString().getBytes("UTF-8"));
 		} catch (JSONException e) {
 			System.err.println("Not a valid JSON format");
+		} catch (UnsupportedEncodingException e) {
+			System.err.println("Unsupported encoding");
 		}
 		return null;
 	}
